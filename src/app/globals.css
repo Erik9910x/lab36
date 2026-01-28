@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+/* ============================================
+   TEAM 36 GROUP - DESIGN SYSTEM
+   ============================================ */
+
+/* Color Tokens */
+:root {
+  --bg-dark-primary: #050807;
+  --bg-dark-secondary: #0a0f0d;
+  --money-green: #00ff9c;
+  --money-glow: rgba(0, 255, 156, 0.25);
+  --glass-white-10: rgba(255, 255, 255, 0.1);
+  --glass-white-05: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-dark-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography */
+.heading-xl {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.heading-l {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.caption {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Glassmorphism Components */
+.glass {
+  background: var(--glass-white-05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(0, 255, 156, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(0, 255, 156, 0.1);
+}
+
+/* Glow Effects */
+.glow-text {
+  text-shadow: 0 0 20px var(--money-glow),
+               0 0 40px rgba(0, 255, 156, 0.15);
+}
+
+.glow-border {
+  box-shadow: 0 0 30px rgba(0, 255, 156, 0.15),
+              inset 0 0 20px rgba(0, 255, 156, 0.05);
+}
+
+.money-green {
+  color: var(--money-green);
+}
+
+/* Button Styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--money-green) 0%, #00cc7a 100%);
+  color: var(--bg-dark-primary);
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 255, 156, 0.4);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 500;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--money-green);
+  color: var(--money-green);
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.2);
+}
+
+/* Risk Tags */
+.risk-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.risk-extreme {
+  background: linear-gradient(135deg, rgba(255, 50, 50, 0.2) 0%, rgba(255, 0, 0, 0.1) 100%);
+  color: #ff4444;
+  border: 1px solid rgba(255, 50, 50, 0.3);
+}
+
+.risk-very-high {
+  background: linear-gradient(135deg, rgba(255, 150, 50, 0.2) 0%, rgba(255, 100, 0, 0.1) 100%);
+  color: #ff9944;
+  border: 1px solid rgba(255, 150, 50, 0.3);
+}
+
+.risk-experimental {
+  background: linear-gradient(135deg, rgba(150, 100, 255, 0.2) 0%, rgba(100, 50, 255, 0.1) 100%);
+  color: #aa88ff;
+  border: 1px solid rgba(150, 100, 255, 0.3);
+}
+
+/* Animations */
+@keyframes typing-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 156, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 156, 0.4);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--money-green);
+  margin-left: 4px;
+  animation: typing-cursor 1s infinite;
+  box-shadow: 0 0 10px var(--money-green);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 64px;
+  }
+}
+
+/* Section Spacing */
+.section {
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 120px 0;
+  }
+}
+
+/* Grid System */
+.grid-projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid-projects {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-members {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .grid-members {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-members {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--money-green);
+}
+
+/* Selection */
+::selection {
+  background: var(--money-green);
+  color: var(--bg-dark-primary);
+}
