@@ -31,7 +31,7 @@ export default function Footer() {
                         color: '#00ff9c',
                         textShadow: '0 0 20px rgba(0, 255, 156, 0.3)',
                     }}>
-                        TEAM 36 GROUP
+                        LAB36
                     </div>
 
                     {/* Tagline */}
@@ -40,7 +40,7 @@ export default function Footer() {
                         color: 'rgba(255, 255, 255, 0.5)',
                         maxWidth: '400px',
                     }}>
-                        An experimental tech collective building high-risk digital systems
+                        An experimental tech collective building AI-powered digital currency demos
                     </p>
 
                     {/* Divider */}
@@ -55,7 +55,7 @@ export default function Footer() {
                         fontSize: '13px',
                         color: 'rgba(255, 255, 255, 0.3)',
                     }}>
-                        © {currentYear} Team 36 Group. All rights reserved.
+                        © {currentYear} LAB36. All rights reserved.
                     </p>
 
                     {/* Warning */}

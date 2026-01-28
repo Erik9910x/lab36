@@ -9,13 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Team 36 Group | Tech Collective",
-  description: "An experimental tech collective building high-risk digital systems powered by AI and humans.",
-  keywords: ["team 36", "tech collective", "ai", "digital systems", "experimental"],
-  authors: [{ name: "Team 36 Group" }],
+  title: "LAB36 - INFINITE DEV TEAM",
+  description: "An experimental tech collective building AI-and-human-powered digital currency demos.",
+  keywords: ["lab36", "infinite dev team", "ai", "digital currency", "experimental", "hackathon"],
+  authors: [{ name: "LAB36" }],
   openGraph: {
-    title: "Team 36 Group | Tech Collective",
-    description: "An experimental tech collective building high-risk digital systems powered by AI and humans.",
+    title: "LAB36 - INFINITE DEV TEAM",
+    description: "Where ideas are tested, not just taught. An experimental tech collective building AI-and-human-powered digital currency demos.",
     type: "website",
   },
 };

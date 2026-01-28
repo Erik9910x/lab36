@@ -3,40 +3,53 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const texts = ['Team', 'Code', 'Build', 'Create', 'Innovate'];
+const quotes = [
+    { en: 'Where ideas are tested, not just taught.', vi: 'Nơi ý tưởng được thử thách, không chỉ được dạy.' },
+];
 
 export default function Hero() {
-    const [currentTextIndex, setCurrentTextIndex] = useState(0);
-    const [displayText, setDisplayText] = useState('');
+    const [quoteIndex, setQuoteIndex] = useState(0);
+    const [isEnglish, setIsEnglish] = useState(true);
+    const [displayQuote, setDisplayQuote] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
-        const currentWord = texts[currentTextIndex];
+        const currentQuote = isEnglish
+            ? quotes[quoteIndex].en
+            : quotes[quoteIndex].vi;
+
         let timeout: NodeJS.Timeout;
 
         if (!isDeleting) {
-            if (displayText.length < currentWord.length) {
+            if (displayQuote.length < currentQuote.length) {
                 timeout = setTimeout(() => {
-                    setDisplayText(currentWord.slice(0, displayText.length + 1));
-                }, 120);
+                    setDisplayQuote(currentQuote.slice(0, displayQuote.length + 1));
+                }, 80);
             } else {
                 timeout = setTimeout(() => {
                     setIsDeleting(true);
-                }, 2000);
+                }, 2500);
             }
         } else {
-            if (displayText.length > 0) {
+            if (displayQuote.length > 0) {
                 timeout = setTimeout(() => {
-                    setDisplayText(displayText.slice(0, -1));
-                }, 80);
+                    setDisplayQuote(displayQuote.slice(0, -1));
+                }, 50);
             } else {
                 setIsDeleting(false);
-                setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+                // Toggle language after deleting
+                if (isEnglish) {
+                    setIsEnglish(false);
+                } else {
+                    setIsEnglish(true);
+                    // Move to next quote (currently only 1, but ready for more)
+                    setQuoteIndex((prev) => (prev + 1) % quotes.length);
+                }
             }
         }
 
         return () => clearTimeout(timeout);
-    }, [displayText, isDeleting, currentTextIndex]);
+    }, [displayQuote, isDeleting, quoteIndex, isEnglish]);
 
     return (
         <section
@@ -99,30 +112,54 @@ export default function Hero() {
                         marginBottom: '24px',
                     }}
                 >
-                    TEAM 36 GROUP — TECH GROUP
+                    LAB36 - INFINITE DEV TEAM
                 </motion.p>
 
-                {/* Typing Text */}
-                <h1
-                    className="heading-xl"
+                {/* Typing Quote */}
+                <div
                     style={{
+                        minHeight: '80px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         marginBottom: '32px',
                     }}
                 >
-                    <span style={{ color: 'rgba(255, 255, 255, 0.5)' }}>[</span>
-                    <span
-                        className="glow-text"
+                    <h1
+                        className="heading-xl"
                         style={{
-                            color: '#00ff9c',
-                            minWidth: '200px',
-                            display: 'inline-block',
+                            fontSize: 'clamp(24px, 4vw, 48px)',
+                            fontWeight: 500,
+                            fontStyle: 'italic',
                         }}
                     >
-                        {displayText}
-                    </span>
-                    <span className="typing-cursor" />
-                    <span style={{ color: 'rgba(255, 255, 255, 0.5)' }}>]</span>
-                </h1>
+                        "{displayQuote}
+                        <span className="typing-cursor" />
+                        "
+                    </h1>
+                </div>
+
+                {/* Hackathon Badge */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    style={{
+                        display: 'inline-block',
+                        padding: '8px 20px',
+                        background: 'linear-gradient(135deg, rgba(0, 255, 156, 0.15) 0%, rgba(0, 255, 156, 0.05) 100%)',
+                        border: '1px solid rgba(0, 255, 156, 0.3)',
+                        borderRadius: '20px',
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        color: '#00ff9c',
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px',
+                        marginBottom: '24px',
+                    }}
+                >
+                    🚀 Hackathon Spirit
+                </motion.div>
 
                 {/* Subtext - English */}
                 <motion.p
@@ -138,8 +175,7 @@ export default function Hero() {
                         margin: '0 auto 16px',
                     }}
                 >
-                    An experimental tech collective building high-risk digital systems
-                    powered by AI and humans.
+                    An experimental tech collective building AI-and-human-powered digital currency demos.
                 </motion.p>
 
                 {/* Subtext - Vietnamese */}
@@ -156,8 +192,7 @@ export default function Hero() {
                         margin: '0 auto 48px',
                     }}
                 >
-                    Một nhóm công nghệ thử nghiệm, xây dựng hệ thống số rủi ro cao
-                    kết hợp AI và con người.
+                    Một tập thể công nghệ thử nghiệm, xây dựng các mô hình tiền tệ số hoá demo kết hợp AI và con người.
                 </motion.p>
 
                 {/* CTA Buttons */}

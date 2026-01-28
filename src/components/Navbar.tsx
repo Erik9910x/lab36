@@ -62,7 +62,7 @@ export default function Navbar() {
               textShadow: '0 0 20px rgba(0, 255, 156, 0.5)',
             }}
           >
-            TEAM 36
+            LAB36
           </motion.a>
 
           {/* Desktop Navigation */}

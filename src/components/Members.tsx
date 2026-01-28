@@ -6,7 +6,7 @@ import { useState } from 'react';
 const members = [
     {
         name: 'Gia Bảo',
-        role: 'Main Dev',
+        role: 'Main developer',
         socials: {
             facebook: 'https://facebook.com/erik9910',
             github: 'https://github.com/Erik9910x/',
@@ -136,6 +136,7 @@ function MemberCard({ member }: { member: Member }) {
         <>
             <motion.div
                 variants={cardVariants}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="glass-card"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -186,8 +187,8 @@ function MemberCard({ member }: { member: Member }) {
                 {/* Role */}
                 <p style={{
                     fontSize: '14px',
-                    color: member.role === 'Main Dev' ? '#00ff9c' : 'rgba(255, 255, 255, 0.5)',
-                    fontWeight: member.role === 'Main Dev' ? 500 : 400,
+                    color: member.role === 'Main developer' ? '#00ff9c' : 'rgba(255, 255, 255, 0.5)',
+                    fontWeight: member.role === 'Main developer' ? 500 : 400,
                     marginBottom: '20px',
                 }}>
                     {member.role}

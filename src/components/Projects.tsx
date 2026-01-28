@@ -22,7 +22,7 @@ const projects = [
         theme: 'Financial / Dark',
     },
     {
-        name: 'MMO – IYDT',
+        name: 'MMO SIMULATOR',
         risk: 'Experimental',
         riskClass: 'risk-experimental',
         description: 'Make Money Online experience platform with challenge-based progression and pressure mechanics.',
@@ -108,6 +108,7 @@ export default function Projects() {
                         <motion.div
                             key={project.name}
                             variants={cardVariants}
+                            whileHover={{ y: -8, transition: { duration: 0.3 } }}
                             className="glass-card"
                             style={{
                                 padding: '32px',
