@@ -6,16 +6,16 @@
 
 /* Color Tokens */
 :root {
-  --bg-dark-primary: #050807;
-  --bg-dark-secondary: #0a0f0d;
-  --money-green: #00ff9c;
-  --money-glow: rgba(0, 255, 156, 0.25);
+  --bg-dark-primary: #070B14;
+  --bg-dark-secondary: #0F172A;
+  --money-green: #38BDF8;
+  --money-glow: rgba(56, 189, 248, 0.25);
   --glass-white-10: rgba(255, 255, 255, 0.1);
-  --glass-white-05: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.5);
+  --glass-white-05: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #E5F0FF;
+  --text-secondary: rgba(229, 240, 255, 0.7);
+  --text-muted: rgba(229, 240, 255, 0.5);
 }
 
 /* Base Styles */
@@ -86,21 +86,21 @@ body {
 
 .glass-card:hover {
   transform: translateY(-4px) scale(1.02);
-  border-color: rgba(0, 255, 156, 0.3);
-  box-shadow: 
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.4),
-    0 0 60px rgba(0, 255, 156, 0.1);
+    0 0 60px rgba(56, 189, 248, 0.15);
 }
 
 /* Glow Effects */
 .glow-text {
   text-shadow: 0 0 20px var(--money-glow),
-               0 0 40px rgba(0, 255, 156, 0.15);
+               0 0 40px rgba(56, 189, 248, 0.15);
 }
 
 .glow-border {
-  box-shadow: 0 0 30px rgba(0, 255, 156, 0.15),
-              inset 0 0 20px rgba(0, 255, 156, 0.05);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.15),
+              inset 0 0 20px rgba(56, 189, 248, 0.05);
 }
 
 .money-green {
@@ -113,7 +113,7 @@ body {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, var(--money-green) 0%, #00cc7a 100%);
+  background: linear-gradient(135deg, var(--money-green) 0%, #0EA5E9 100%);
   color: var(--bg-dark-primary);
   font-weight: 600;
   border: none;
@@ -125,7 +125,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 255, 156, 0.4);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
 }
 
 .btn-secondary {
@@ -146,7 +146,7 @@ body {
 .btn-secondary:hover {
   border-color: var(--money-green);
   color: var(--money-green);
-  box-shadow: 0 0 20px rgba(0, 255, 156, 0.2);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
 }
 
 /* Risk Tags */
@@ -191,10 +191,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 255, 156, 0.2);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(0, 255, 156, 0.4);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
   }
 }
 

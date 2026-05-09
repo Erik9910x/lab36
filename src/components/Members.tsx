@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const members = [
     {
         name: 'Gia Bảo',
-        role: 'Main developer',
+        role: { vi: 'Lập trình viên chính', en: 'Main developer' },
         socials: {
             facebook: 'https://facebook.com/erik9910',
             github: 'https://github.com/Erik9910x/',
@@ -14,21 +15,21 @@ const members = [
     },
     {
         name: 'Minh Phú',
-        role: 'Contributor',
+        role: { vi: 'Cộng tác viên', en: 'Contributor' },
         socials: {
             facebook: 'https://www.facebook.com/trphu1605',
         },
     },
     {
         name: 'Nhật Tùng',
-        role: 'Contributor',
+        role: { vi: 'Cộng tác viên', en: 'Contributor' },
         socials: {
             facebook: 'https://www.facebook.com/nhat.tung.947853',
         },
     },
     {
         name: 'Minh Hùng',
-        role: 'Contributor',
+        role: { vi: 'Cộng tác viên', en: 'Contributor' },
         socials: {
             facebook: 'https://www.facebook.com/minh.hung.cao.150438',
         },
@@ -58,6 +59,8 @@ const cardVariants = {
 };
 
 export default function Members() {
+    const { t } = useLanguage();
+
     return (
         <section
             id="members"
@@ -73,7 +76,7 @@ export default function Members() {
                 right: '-15%',
                 width: '400px',
                 height: '400px',
-                background: 'radial-gradient(circle, rgba(0, 255, 156, 0.04) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%)',
                 pointerEvents: 'none',
             }} />
 
@@ -87,14 +90,14 @@ export default function Members() {
                     style={{ textAlign: 'center', marginBottom: '64px' }}
                 >
                     <h2 className="heading-l" style={{ marginBottom: '16px' }}>
-                        The <span className="money-green glow-text">Team</span>
+                        {t({ vi: 'Đội ngũ', en: 'The' })} <span className="money-green glow-text">{t({ vi: '', en: 'Team' })}</span>
                     </h2>
                     <p style={{
                         color: 'rgba(255, 255, 255, 0.6)',
                         maxWidth: '400px',
                         margin: '0 auto'
                     }}>
-                        The people behind the experiments
+                        {t({ vi: 'Những người đứng sau các dự án', en: 'The people behind the projects' })}
                     </p>
                 </motion.div>
 
@@ -117,7 +120,7 @@ export default function Members() {
 
 interface Member {
     name: string;
-    role: string;
+    role: { vi: string; en: string };
     socials: {
         facebook?: string;
         github?: string;
@@ -127,6 +130,7 @@ interface Member {
 function MemberCard({ member }: { member: Member }) {
     const [isHovered, setIsHovered] = useState(false);
     const [showMobileSheet, setShowMobileSheet] = useState(false);
+    const { t } = useLanguage();
 
     const getInitials = (name: string) => {
         return name.split(' ').map(n => n[0]).join('').toUpperCase();
@@ -153,22 +157,22 @@ function MemberCard({ member }: { member: Member }) {
                 <motion.div
                     animate={{
                         boxShadow: isHovered
-                            ? '0 0 40px rgba(0, 255, 156, 0.3)'
-                            : '0 0 20px rgba(0, 255, 156, 0.1)'
+                            ? '0 0 40px rgba(56, 189, 248, 0.3)'
+                            : '0 0 20px rgba(56, 189, 248, 0.1)'
                     }}
                     style={{
                         width: '80px',
                         height: '80px',
                         borderRadius: '50%',
-                        background: 'linear-gradient(135deg, rgba(0, 255, 156, 0.2) 0%, rgba(0, 255, 156, 0.05) 100%)',
-                        border: '2px solid rgba(0, 255, 156, 0.3)',
+                        background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0.05) 100%)',
+                        border: '2px solid rgba(56, 189, 248, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         margin: '0 auto 20px',
                         fontSize: '24px',
                         fontWeight: 600,
-                        color: '#00ff9c',
+                        color: '#38BDF8',
                     }}
                 >
                     {getInitials(member.name)}
@@ -187,11 +191,11 @@ function MemberCard({ member }: { member: Member }) {
                 {/* Role */}
                 <p style={{
                     fontSize: '14px',
-                    color: member.role === 'Main developer' ? '#00ff9c' : 'rgba(255, 255, 255, 0.5)',
-                    fontWeight: member.role === 'Main developer' ? 500 : 400,
+                    color: t(member.role) === t({ vi: 'Lập trình viên chính', en: 'Main developer' }) ? '#38BDF8' : 'rgba(255, 255, 255, 0.5)',
+                    fontWeight: t(member.role) === t({ vi: 'Lập trình viên chính', en: 'Main developer' }) ? 500 : 400,
                     marginBottom: '20px',
                 }}>
-                    {member.role}
+                    {t(member.role)}
                 </p>
 
                 {/* Social Icons - Desktop (fade in on hover) */}
@@ -282,7 +286,7 @@ function MemberCard({ member }: { member: Member }) {
                                 color: 'rgba(255, 255, 255, 0.5)',
                                 marginBottom: '24px',
                             }}>
-                                {member.role}
+                                {t(member.role)}
                             </p>
 
                             <div style={{
@@ -364,8 +368,8 @@ function SocialLink({
                 transition: 'all 0.3s ease',
             }}
             onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#00ff9c';
-                e.currentTarget.style.color = '#00ff9c';
+                e.currentTarget.style.borderColor = '#38BDF8';
+                e.currentTarget.style.color = '#38BDF8';
             }}
             onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';

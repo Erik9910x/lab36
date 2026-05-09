@@ -1,9 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const { t } = useLanguage();
 
     return (
         <footer style={{
@@ -28,8 +30,8 @@ export default function Footer() {
                     <div style={{
                         fontSize: '20px',
                         fontWeight: 700,
-                        color: '#00ff9c',
-                        textShadow: '0 0 20px rgba(0, 255, 156, 0.3)',
+                        color: '#38BDF8',
+                        textShadow: '0 0 20px rgba(56, 189, 248, 0.3)',
                     }}>
                         LAB36
                     </div>
@@ -40,14 +42,17 @@ export default function Footer() {
                         color: 'rgba(255, 255, 255, 0.5)',
                         maxWidth: '400px',
                     }}>
-                        An experimental tech collective building AI-powered digital currency demos
+                        {t({
+                            vi: 'Xây dựng các công cụ thông minh với sự rõ ràng và chính xác.',
+                            en: 'Building intelligent tools with clarity and precision.'
+                        })}
                     </p>
 
                     {/* Divider */}
                     <div style={{
                         width: '60px',
                         height: '1px',
-                        background: 'linear-gradient(90deg, transparent, rgba(0, 255, 156, 0.5), transparent)',
+                        background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent)',
                     }} />
 
                     {/* Copyright */}
@@ -56,17 +61,6 @@ export default function Footer() {
                         color: 'rgba(255, 255, 255, 0.3)',
                     }}>
                         © {currentYear} LAB36. All rights reserved.
-                    </p>
-
-                    {/* Warning */}
-                    <p style={{
-                        fontSize: '11px',
-                        color: 'rgba(255, 100, 100, 0.6)',
-                        maxWidth: '500px',
-                        lineHeight: 1.6,
-                    }}>
-                        ⚠️ All projects are experimental and involve high risk.
-                        This is not financial advice. Use at your own discretion.
                     </p>
                 </motion.div>
             </div>

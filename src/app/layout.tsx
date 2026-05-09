@@ -9,13 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LAB36 - INFINITE DEV TEAM",
-  description: "An experimental tech collective building AI-and-human-powered digital currency demos.",
+  title: "LAB36",
+  description: "Building intelligent tools with clarity and precision.",
   keywords: ["lab36", "infinite dev team", "ai", "digital currency", "experimental", "hackathon"],
   authors: [{ name: "LAB36" }],
   openGraph: {
-    title: "LAB36 - INFINITE DEV TEAM",
-    description: "Where ideas are tested, not just taught. An experimental tech collective building AI-and-human-powered digital currency demos.",
+    title: "LAB36",
+    description: "Where ideas are tested, not just taught. Building intelligent tools with clarity and precision.",
     type: "website",
   },
 };
@@ -26,8 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body style={{ fontFamily: 'var(--font-inter), sans-serif' }}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/tablogo.png" />
+      </head>
+      <body style={{ fontFamily: 'var(--font-inter), sans-serif' }} suppressHydrationWarning>
         {children}
       </body>
     </html>

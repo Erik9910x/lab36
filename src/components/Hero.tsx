@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const quotes = [
     { en: 'Where ideas are tested, not just taught.', vi: 'Nơi ý tưởng được thử thách, không chỉ được dạy.' },
 ];
 
 export default function Hero() {
+    const { t } = useLanguage();
     const [quoteIndex, setQuoteIndex] = useState(0);
     const [isEnglish, setIsEnglish] = useState(true);
     const [displayQuote, setDisplayQuote] = useState('');
@@ -73,7 +75,7 @@ export default function Hero() {
                 transform: 'translateX(-50%)',
                 width: '600px',
                 height: '600px',
-                background: 'radial-gradient(circle, rgba(0, 255, 156, 0.08) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%)',
                 pointerEvents: 'none',
             }} />
 
@@ -83,7 +85,7 @@ export default function Hero() {
                 right: '-10%',
                 width: '400px',
                 height: '400px',
-                background: 'radial-gradient(circle, rgba(0, 255, 156, 0.05) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, transparent 70%)',
                 pointerEvents: 'none',
             }} />
 
@@ -106,13 +108,13 @@ export default function Hero() {
                     style={{
                         fontSize: '14px',
                         fontWeight: 500,
-                        color: '#00ff9c',
+                        color: '#38BDF8',
                         textTransform: 'uppercase',
                         letterSpacing: '3px',
                         marginBottom: '24px',
                     }}
                 >
-                    LAB36 - INFINITE DEV TEAM
+                    LAB36
                 </motion.p>
 
                 {/* Typing Quote */}
@@ -139,7 +141,6 @@ export default function Hero() {
                     </h1>
                 </div>
 
-                {/* Hackathon Badge */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -147,21 +148,21 @@ export default function Hero() {
                     style={{
                         display: 'inline-block',
                         padding: '8px 20px',
-                        background: 'linear-gradient(135deg, rgba(0, 255, 156, 0.15) 0%, rgba(0, 255, 156, 0.05) 100%)',
-                        border: '1px solid rgba(0, 255, 156, 0.3)',
+                        background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%)',
+                        border: '1px solid rgba(56, 189, 248, 0.3)',
                         borderRadius: '20px',
                         fontSize: '13px',
                         fontWeight: 600,
-                        color: '#00ff9c',
+                        color: '#38BDF8',
                         textTransform: 'uppercase',
                         letterSpacing: '1px',
                         marginBottom: '24px',
                     }}
                 >
-                    🚀 Hackathon Spirit
+                    chán à? code đi
                 </motion.div>
 
-                {/* Subtext - English */}
+                {/* Subtext */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -170,29 +171,15 @@ export default function Hero() {
                         fontSize: '18px',
                         lineHeight: 1.8,
                         color: 'rgba(255, 255, 255, 0.8)',
-                        marginBottom: '16px',
-                        maxWidth: '700px',
-                        margin: '0 auto 16px',
-                    }}
-                >
-                    An experimental tech collective building AI-and-human-powered digital currency demos.
-                </motion.p>
-
-                {/* Subtext - Vietnamese */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
-                    style={{
-                        fontSize: '16px',
-                        lineHeight: 1.8,
-                        color: 'rgba(255, 255, 255, 0.5)',
-                        fontStyle: 'italic',
+                        marginBottom: '48px',
                         maxWidth: '700px',
                         margin: '0 auto 48px',
                     }}
                 >
-                    Một tập thể công nghệ thử nghiệm, xây dựng các mô hình tiền tệ số hoá demo kết hợp AI và con người.
+                    {t({
+                        vi: 'Xây dựng các công cụ thông minh với sự rõ ràng và chính xác.',
+                        en: 'Building intelligent tools with clarity and precision.'
+                    })}
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -205,52 +192,15 @@ export default function Hero() {
                         gap: '16px',
                         justifyContent: 'center',
                         flexWrap: 'wrap',
+                        marginTop: '48px',
                     }}
                 >
                     <a href="#projects" className="btn-primary">
-                        View Projects
+                        {t({ vi: 'Xem dự án', en: 'View Projects' })}
                     </a>
                     <a href="#members" className="btn-secondary">
-                        Meet the Team
+                        {t({ vi: 'Gặp gỡ đội ngũ', en: 'Meet the Team' })}
                     </a>
-                </motion.div>
-            </motion.div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                style={{
-                    position: 'absolute',
-                    bottom: '40px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                }}
-            >
-                <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    style={{
-                        width: '24px',
-                        height: '40px',
-                        border: '2px solid rgba(255, 255, 255, 0.3)',
-                        borderRadius: '12px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        paddingTop: '8px',
-                    }}
-                >
-                    <motion.div
-                        animate={{ opacity: [1, 0.3, 1] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                        style={{
-                            width: '4px',
-                            height: '8px',
-                            background: '#00ff9c',
-                            borderRadius: '2px',
-                        }}
-                    />
                 </motion.div>
             </motion.div>
         </section>
