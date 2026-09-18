@@ -32,35 +32,6 @@ const projectSeasons: { season: string; seasonKey?: { vi: string; en: string }; 
         ],
     },
     {
-        season: 'Season 1',
-        projects: [
-            {
-                name: 'Black MMO',
-                description: 'Game mô phỏng jackpot và gamble giải trí với hiệu ứng casino hiện đại, cược ảo và nhiều chế độ thử vận may hấp dẫn.',
-                descriptionEn: 'A modern jackpot and gamble simulation game featuring virtual betting, casino-inspired visuals, and exciting luck-based game modes.',
-                liveUrl: 'https://casino36fun.vercel.app',
-                githubUrl: 'https://github.com/Erik9910x/casino36fun',
-                platforms: ['PC', 'Mobile', 'Tablet'],
-            },
-            {
-                name: 'Titan Futures',
-                description: 'Mô phỏng giao dịch futures chuyên nghiệp với chart realtime, phân tích thị trường và luyện trade bằng tài khoản ảo.',
-                descriptionEn: 'A professional futures trading simulator with live charts, market analytics, and virtual trading for strategy practice.',
-                liveUrl: 'https://titanfutures.onrender.com/',
-                githubUrl: 'https://github.com/Erik9910x/titan-futures',
-                platforms: ['PC', 'Tablet'],
-            },
-            {
-                name: 'MMO SIMULATOR',
-                description: 'Trải nghiệm MMO theo dạng challenge với hệ thống nhiệm vụ, level progression và cơ chế áp lực thời gian đầy kịch tính.',
-                descriptionEn: 'A challenge-driven MMO experience with mission progression, competitive mechanics, and intense time-pressure gameplay.',
-                liveUrl: 'https://mmo-iydt.onrender.com/',
-                githubUrl: 'https://github.com/Erik9910x/mmo',
-                platforms: ['PC', 'Mobile', 'Tablet'],
-            },
-        ],
-    },
-    {
         season: 'Season 2',
         projects: [
             {
@@ -110,6 +81,35 @@ const projectSeasons: { season: string; seasonKey?: { vi: string; en: string }; 
                 liveUrl: 'https://lab36reactx.vercel.app',
                 githubUrl: null,
                 platforms: ['Extension (PC)'],
+            },
+        ],
+    },
+    {
+        season: 'Season 1',
+        projects: [
+            {
+                name: 'Black MMO',
+                description: 'Game mô phỏng jackpot và gamble giải trí với hiệu ứng casino hiện đại, cược ảo và nhiều chế độ thử vận may hấp dẫn.',
+                descriptionEn: 'A modern jackpot and gamble simulation game featuring virtual betting, casino-inspired visuals, and exciting luck-based game modes.',
+                liveUrl: 'https://casino36fun.vercel.app',
+                githubUrl: 'https://github.com/Erik9910x/casino36fun',
+                platforms: ['PC', 'Mobile', 'Tablet'],
+            },
+            {
+                name: 'Titan Futures',
+                description: 'Mô phỏng giao dịch futures chuyên nghiệp với chart realtime, phân tích thị trường và luyện trade bằng tài khoản ảo.',
+                descriptionEn: 'A professional futures trading simulator with live charts, market analytics, and virtual trading for strategy practice.',
+                liveUrl: 'https://titanfutures.onrender.com/',
+                githubUrl: 'https://github.com/Erik9910x/titan-futures',
+                platforms: ['PC', 'Tablet'],
+            },
+            {
+                name: 'MMO SIMULATOR',
+                description: 'Trải nghiệm MMO theo dạng challenge với hệ thống nhiệm vụ, level progression và cơ chế áp lực thời gian đầy kịch tính.',
+                descriptionEn: 'A challenge-driven MMO experience with mission progression, competitive mechanics, and intense time-pressure gameplay.',
+                liveUrl: 'https://mmo-iydt.onrender.com/',
+                githubUrl: 'https://github.com/Erik9910x/mmo',
+                platforms: ['PC', 'Mobile', 'Tablet'],
             },
         ],
     },
