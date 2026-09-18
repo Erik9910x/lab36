@@ -14,9 +14,10 @@ interface Project {
     isGold?: boolean;
 }
 
-const projectSeasons = [
+const projectSeasons: { season: string; seasonKey?: { vi: string; en: string }; projects: Project[] }[] = [
     {
-        season: 'Season 1',
+        season: 'Advanced Season',
+        seasonKey: { vi: 'MÙA NÂNG CAO', en: 'ADVANCED SEASON' },
         projects: [
             {
                 name: 'Human Atlas 3D',
@@ -28,6 +29,11 @@ const projectSeasons = [
                 isPinned: true,
                 isGold: true,
             },
+        ],
+    },
+    {
+        season: 'Season 1',
+        projects: [
             {
                 name: 'Black MMO',
                 description: 'Game mô phỏng jackpot và gamble giải trí với hiệu ứng casino hiện đại, cược ảo và nhiều chế độ thử vận may hấp dẫn.',
@@ -57,16 +63,6 @@ const projectSeasons = [
     {
         season: 'Season 2',
         projects: [
-            {
-                name: 'Human Atlas 3D',
-                description: 'Human Atlas 3D là nền tảng giải phẫu người 3D tương tác, cho phép khám phá xương, cơ, nội tạng, mạch máu và các hệ cơ quan với mô hình 3D chân thực ngay trên trình duyệt.',
-                descriptionEn: 'Human Atlas 3D is an interactive 3D anatomy platform that lets you explore the skeleton, muscles, organs, blood vessels, and body systems through realistic 3D models directly in your browser.',
-                liveUrl: 'https://humanatlas36.vercel.app/',
-                githubUrl: 'https://github.com/Erik9910x/human-atlas',
-                platforms: ['PC'],
-                isPinned: true,
-                isGold: true,
-            },
             {
                 name: 'VibraX',
                 description: 'VibraX là nền tảng âm nhạc hiện đại trên web, mang đến trải nghiệm nghe nhạc mượt mà, giao diện cao cấp và không gian âm thanh đắm chìm thế hệ mới.',
@@ -196,7 +192,7 @@ export default function Projects() {
                                 letterSpacing: '2px',
                             }}
                         >
-                            {seasonData.season}
+                            {seasonData.seasonKey ? t(seasonData.seasonKey) : seasonData.season}
                         </motion.h3>
 
                         {/* Projects Grid */}
@@ -242,25 +238,6 @@ export default function Projects() {
                                             }}>
                                                 {project.name}
                                             </h3>
-                                            {project.isPinned && (
-                                                <motion.span
-                                                    initial={{ scale: 0.8, opacity: 0 }}
-                                                    animate={{ scale: 1, opacity: 1 }}
-                                                    transition={{ delay: 0.2, type: 'spring' }}
-                                                    style={{
-                                                        fontSize: '12px',
-                                                        fontWeight: 700,
-                                                        color: '#FFD700',
-                                                        background: 'rgba(255, 215, 0, 0.15)',
-                                                        border: '1px solid rgba(255, 215, 0, 0.4)',
-                                                        borderRadius: '12px',
-                                                        padding: '4px 10px',
-                                                    }}
-                                                    title={t({ vi: 'Dự án ghim', en: 'Pinned Project' })}
-                                                >
-                                                    📌 {t({ vi: 'Ghịm', en: 'Pinned' })}
-                                                </motion.span>
-                                            )}
                                         </div>
                                     </div>
 
